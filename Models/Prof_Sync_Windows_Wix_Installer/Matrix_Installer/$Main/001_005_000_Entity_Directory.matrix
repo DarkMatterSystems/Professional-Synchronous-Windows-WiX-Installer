@@ -1,0 +1,13 @@
+
+DefineDomainInclude:001_005_000_Entity_Directory
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Entity:Directory
+        Attribute
+            Text : Id
+            Text : Name
+            Text : Heading
+        Relationship
+            Includes |>> Component
+            Includes |>> Directory

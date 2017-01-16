@@ -1,0 +1,16 @@
+
+DefineEntityProcessInclude:Property:001_004_001_Process_Generate_Property
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Traverse
+        Navigation
+            Product : Includes : Property
+        TraverseSelection
+            Template
+                <<:>>
+                <<:>><Property
+                <<TabIn>>
+                <<:>>Id='<<#Property.Id>>'
+                <<:>>Value='<<#Property.Value>>'/>
+                <<TabOut>>

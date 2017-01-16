@@ -1,0 +1,23 @@
+
+DefineEntityProcessInclude:File_Shortcut:001_009_001_Process_Generate_File_Shortcut
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Traverse
+        Navigation
+            File          : Includes       : File_Shortcut
+            File_Shortcut : Specialisation : Shortcut
+        TraverseSelection
+            Template
+                <<:>>
+                <<:>><Shortcut
+                <<TabIn>>
+                <<:>>Id='<<#Shortcut.Id>>'
+                <<:>>Directory='<<#File_Shortcut.Directory>>'
+                <<:>>Name='<<#Shortcut.Name>>'
+                <<:>>WorkingDirectory='INSTALLDIR'
+                <<:>>Icon='<<#File_Shortcut.Icon>>'
+                <<:>>IconIndex='0'
+                <<:>>Advertise='yes'
+                <<:>>Description='<<#Shortcut.Description>>'/>
+                <<TabOut>>

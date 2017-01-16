@@ -1,0 +1,16 @@
+
+DefineEntityProcessInclude:Icon:001_002_001_Process_Generate_Icon
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Traverse
+        Navigation
+            Product : Includes : Icon
+        TraverseSelection
+            Template
+                <<:>>
+                <<:>><Icon
+                <<TabIn>>
+                <<:>>Id='<<#Icon.Id>>'
+                <<:>>SourceFile='<<#Icon.Source_file>>'/>
+                <<TabOut>>

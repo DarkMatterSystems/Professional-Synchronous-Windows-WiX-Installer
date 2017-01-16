@@ -1,0 +1,16 @@
+
+DefineEntityProcessInclude:Remove_Folder:001_012_001_Process_Generate_Remove_Folder
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Traverse
+        Navigation
+            Component : Includes : Remove_Folder
+        TraverseSelection
+            Template
+                <<:>>
+                <<:>><RemoveFolder
+                <<TabIn>>
+                <<:>>Id='<<#Remove_Folder.Id>>'
+                <<:>>On='<<#Remove_Folder.On>>'/>
+                <<TabOut>>

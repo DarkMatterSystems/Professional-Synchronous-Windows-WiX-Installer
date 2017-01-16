@@ -1,0 +1,71 @@
+
+DefineEntityProcessInclude:Directory:001_005_001_Process_Generate_Directory
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    CaseSelection
+        WhenCase
+            ConditionAnd
+                TestAnd
+                    Directory.Heading != <<EmptyString>>
+            WhenCaseSelection
+                Template
+                    <<:>>
+                    <<:>>
+                    <<:>><!-- <<#Directory.Heading>> -->
+    Template
+        <<:>>
+        <<:>><Directory
+        <<TabIn>>
+        <<:>>Id='<<#Directory.Id>>'
+        <<:>>Name='<<#Directory.Name>>'
+    Traverse
+        Navigation
+            Directory : Includes : Component
+        TraverseSelection
+            SelectionHead
+                Template
+                    >
+        NullTraverseSelection
+            Traverse
+                Navigation
+                    Directory : Includes : Directory
+                TraverseSelection
+                    SelectionHead
+                        Template
+                            >
+    Traverse
+        Navigation
+            Directory : Includes : Component
+        TraverseSelection
+            ProcessEntityInclude
+                Component : 001_006_001_Process_Generate_Component
+    Traverse
+        Navigation
+            Directory : Includes : Directory
+        TraverseSelection
+            ProcessEntityInclude
+                Directory : 001_005_001_Process_Generate_Directory
+    Traverse
+        Navigation
+            Directory : Includes : Component
+        TraverseSelection
+            SelectionHead
+                Template
+                    <<:>>
+                    <<TabOut>>
+                    <<:>></Directory>
+        NullTraverseSelection
+            Traverse
+                Navigation
+                    Directory : Includes : Directory
+                TraverseSelection
+                    SelectionHead
+                        Template
+                            <<:>>
+                            <<TabOut>>
+                            <<:>></Directory>
+                NullTraverseSelection
+                    Template
+                        />
+                        <<TabOut>>

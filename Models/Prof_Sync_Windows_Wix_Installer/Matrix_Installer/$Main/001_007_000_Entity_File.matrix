@@ -1,0 +1,12 @@
+
+DefineDomainInclude:001_007_000_Entity_File
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Entity:File
+        Attribute
+            Text : Id
+            Text : Name
+            Text : Source
+        Relationship
+            Includes |>> File_Shortcut

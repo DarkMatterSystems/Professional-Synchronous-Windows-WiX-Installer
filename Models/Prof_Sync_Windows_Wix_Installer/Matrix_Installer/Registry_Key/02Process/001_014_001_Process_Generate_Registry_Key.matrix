@@ -1,0 +1,25 @@
+
+DefineEntityProcessInclude:Registry_Key:001_014_001_Process_Generate_Registry_Key
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Traverse
+        Navigation
+            Component : Includes : Registry_Key
+        TraverseSelection
+            Template
+                <<:>>
+                <<:>><RegistryKey
+                <<TabIn>>
+                <<:>>Root='<<#Registry_Key.Root>>'
+                <<:>>Key='<<#Registry_Key.Key>>'>
+            Traverse
+                Navigation
+                    Registry_Key : Includes : Registry_Value
+                TraverseSelection
+                    ProcessEntityInclude
+                        Registry_Value : 001_015_001_Process_Generate_Registry_Value
+            Template
+                <<:>>
+                <<TabOut>>
+                <<:>></RegistryKey>

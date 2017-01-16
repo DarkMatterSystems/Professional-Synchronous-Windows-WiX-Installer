@@ -1,0 +1,16 @@
+
+DefineDomainInclude:001_016_000_Entity_Feature
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Entity:Feature
+        Attribute
+            Text : Id
+            Text : Title
+            Text : Display
+            Text : Description
+            Text : Configurable_directory
+            Text : Heading
+        Relationship
+            Includes |>> Component
+            Includes |>> Feature

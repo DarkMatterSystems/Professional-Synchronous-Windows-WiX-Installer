@@ -1,0 +1,10 @@
+
+DefineDomainInclude:001_008_000_Entity_Shortcut
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Entity:Shortcut
+        Attribute
+            Text : Id
+            Text : Name
+            Text : Description

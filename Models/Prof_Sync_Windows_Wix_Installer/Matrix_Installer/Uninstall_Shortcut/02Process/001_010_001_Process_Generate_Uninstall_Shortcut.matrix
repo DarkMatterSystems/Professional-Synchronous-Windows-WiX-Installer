@@ -1,0 +1,20 @@
+
+DefineEntityProcessInclude:Uninstall_Shortcut:001_010_001_Process_Generate_Uninstall_Shortcut
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Traverse
+        Navigation
+            Component          : Includes       : Uninstall_Shortcut
+            Uninstall_Shortcut : Specialisation : Shortcut
+        TraverseSelection
+            Template
+                <<:>>
+                <<:>><Shortcut
+                <<TabIn>>
+                <<:>>Id='<<#Shortcut.Id>>'
+                <<:>>Name='<<#Shortcut.Name>>'
+                <<:>>Target='<<#Uninstall_Shortcut.Target>>'
+                <<:>>Arguments='<<#Uninstall_Shortcut.Arguments>>'
+                <<:>>Description='<<#Shortcut.Description>>'/>
+                <<TabOut>>

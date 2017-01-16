@@ -1,0 +1,43 @@
+
+DefineEntityProcessInclude:Component:001_006_001_Process_Generate_Component
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Template
+        <<:>>
+        <<:>><Component
+        <<TabIn>>
+        <<:>>Id='<<#Component.Id>>'
+        <<:>>Guid='<<#Component.Guid>>'>
+    CaseSelection
+        WhenCase
+            ConditionAnd
+                TestAnd
+                    Component.Condition != <<EmptyString>>
+            WhenCaseSelection
+                Template
+                    <<:>>
+                    <<:>><Condition>
+                    <<TabIn>>
+                    <<:>>
+                    <<:>><<#Component.Condition>>
+                    <<TabOut>>
+                    <<:>>
+                    <<:>></Condition>
+    ProcessEntityInclude
+        File               : 001_007_001_Process_Generate_File
+        Uninstall_Shortcut : 001_010_001_Process_Generate_Uninstall_Shortcut
+        Create_Folder      : 001_011_001_Process_Generate_Create_Folder
+        Remove_Folder      : 001_012_001_Process_Generate_Remove_Folder
+        Environment        : 001_013_001_Process_Generate_Environment
+        Registry_Key       : 001_014_001_Process_Generate_Registry_Key
+    Traverse
+        Navigation
+            Component : Includes : Registry_Value
+        TraverseSelection
+            ProcessEntityInclude
+                Registry_Value : 001_015_001_Process_Generate_Registry_Value
+    Template
+        <<:>>
+        <<TabOut>>
+        <<:>></Component>

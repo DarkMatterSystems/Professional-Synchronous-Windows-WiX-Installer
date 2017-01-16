@@ -1,0 +1,18 @@
+
+DefineDomainInclude:001_006_000_Entity_Component
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Entity:Component
+        Attribute
+            Text : Id
+            Text : Guid
+            Text : Condition
+        Relationship
+            Includes -|> File
+            Includes -|> Uninstall_Shortcut
+            Includes -|> Create_Folder
+            Includes -|> Remove_Folder
+            Includes -|> Environment
+            Includes -|> Registry_Key
+            Includes -|> Registry_Value

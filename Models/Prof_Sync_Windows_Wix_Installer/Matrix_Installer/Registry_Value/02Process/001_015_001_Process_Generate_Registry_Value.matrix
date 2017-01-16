@@ -1,0 +1,30 @@
+
+DefineEntityProcessInclude:Registry_Value:001_015_001_Process_Generate_Registry_Value
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Template
+        <<:>>
+        <<:>><RegistryValue
+        <<TabIn>>
+    CaseSelection
+        WhenCase
+            ConditionAnd
+                TestAnd
+                    Registry_Value.Root != <<EmptyString>>
+            WhenCaseSelection
+                Template
+                    <<:>>Root='<<#Registry_Value.Root>>'
+    CaseSelection
+        WhenCase
+            ConditionAnd
+                TestAnd
+                    Registry_Value.Key != <<EmptyString>>
+            WhenCaseSelection
+                Template
+                    <<:>>Key='<<#Registry_Value.Key>>'
+    Template
+        <<:>>Value='<<#Registry_Value.Value>>'
+        <<:>>Type='string'
+        <<:>>KeyPath='yes'/>
+        <<TabOut>>

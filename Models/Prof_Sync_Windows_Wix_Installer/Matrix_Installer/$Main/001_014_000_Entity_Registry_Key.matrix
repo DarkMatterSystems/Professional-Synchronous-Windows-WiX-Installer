@@ -1,0 +1,11 @@
+
+DefineDomainInclude:001_014_000_Entity_Registry_Key
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Entity:Registry_Key
+        Attribute
+            Text : Root
+            Text : Key
+        Relationship
+            Includes --> Registry_Value

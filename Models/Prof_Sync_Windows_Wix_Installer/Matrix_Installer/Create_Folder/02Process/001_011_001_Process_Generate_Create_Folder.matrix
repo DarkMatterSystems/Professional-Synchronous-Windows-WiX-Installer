@@ -1,0 +1,12 @@
+
+DefineEntityProcessInclude:Create_Folder:001_011_001_Process_Generate_Create_Folder
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Traverse
+        Navigation
+            Component : Includes : Create_Folder
+        TraverseSelection
+            Template
+                <<:>>
+                <<:>><CreateFolder/>

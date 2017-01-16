@@ -1,0 +1,10 @@
+
+DefineDomainInclude:001_013_000_Entity_Environment
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Entity:Environment
+        Attribute
+            Text : Id
+            Text : Name
+            Text : Value

@@ -1,0 +1,42 @@
+
+DefineEntityProcessInclude:File:001_007_001_Process_Generate_File
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Traverse
+        Navigation
+            Component : Includes : File
+        TraverseSelection
+            Template
+                <<:>>
+                <<:>><File
+                <<TabIn>>
+                <<:>>Id='<<#File.Id>>'
+                <<:>>Name='<<#File.Name>>'
+                <<:>>DiskId='1'
+                <<:>>Source='<<#File.Source>>'
+                <<:>>KeyPath='yes'
+            Traverse
+                Navigation
+                    File : Includes : File_Shortcut
+                TraverseSelection
+                    SelectionHead
+                        Template
+                            >
+                NullTraverseSelection
+                    Template
+                        />
+            ProcessEntityInclude
+                File_Shortcut : 001_009_001_Process_Generate_File_Shortcut
+            Traverse
+                Navigation
+                    File : Includes : File_Shortcut
+                TraverseSelection
+                    SelectionHead
+                        Template
+                            <<:>>
+                            <<TabOut>>
+                            <<:>></File>
+                NullTraverseSelection
+                    Template
+                        <<TabOut>>

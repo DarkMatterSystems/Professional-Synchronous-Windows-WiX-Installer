@@ -1,0 +1,9 @@
+
+DefineDomainInclude:001_002_000_Entity_Icon
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Entity:Icon
+        Attribute
+            Text : Id
+            Text : Source_file

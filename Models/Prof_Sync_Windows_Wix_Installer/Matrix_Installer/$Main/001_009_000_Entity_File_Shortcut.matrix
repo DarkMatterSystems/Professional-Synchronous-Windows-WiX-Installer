@@ -1,0 +1,11 @@
+
+DefineDomainInclude:001_009_000_Entity_File_Shortcut
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Entity:File_Shortcut
+        Attribute
+            Text : Directory
+            Text : Icon
+        Relationship
+            Specialisation --> Shortcut

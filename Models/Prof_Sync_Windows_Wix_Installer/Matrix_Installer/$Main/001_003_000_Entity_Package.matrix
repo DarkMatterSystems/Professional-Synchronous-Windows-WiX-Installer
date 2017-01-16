@@ -1,0 +1,10 @@
+
+DefineDomainInclude:001_003_000_Entity_Package
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Entity:Package
+        Attribute
+            Text : Description
+            Text : Comments
+            Text : Manufacture

@@ -1,0 +1,68 @@
+
+DefineEntityProcessInclude:Feature:001_016_001_Process_Generate_Feature
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    CaseSelection
+        WhenCase
+            ConditionAnd
+                TestAnd
+                    Feature.Heading != <<EmptyString>>
+            WhenCaseSelection
+                Template
+                    <<:>>
+                    <<:>>
+                    <<:>><!-- <<#Feature.Heading>> -->
+    Template
+        <<:>>
+        <<:>><Feature
+        <<TabIn>>
+        <<:>>Id='<<#Feature.Id>>'
+        <<:>>Title='<<#Feature.Title>>'
+        <<:>>Level='1'
+    CaseSelection
+        WhenCase
+            ConditionAnd
+                TestAnd
+                    Feature.Description != <<EmptyString>>
+            WhenCaseSelection
+                Template
+                    <<:>>Description='<<#Feature.Description>>'
+    CaseSelection
+        WhenCase
+            ConditionAnd
+                TestAnd
+                    Feature.Display != <<EmptyString>>
+            WhenCaseSelection
+                Template
+                    <<:>>Display='<<#Feature.Display>>'
+    CaseSelection
+        WhenCase
+            ConditionAnd
+                TestAnd
+                    Feature.Configurable_directory != <<EmptyString>>
+            WhenCaseSelection
+                Template
+                    <<:>>ConfigurableDirectory='<<#Feature.Configurable_directory>>'
+    Template
+        >
+    Traverse
+        Navigation
+            Feature : Includes : Feature
+        TraverseSelection
+            ProcessEntityInclude
+                Feature : 001_016_001_Process_Generate_Feature
+        NullTraverseSelection
+            Traverse
+                Navigation
+                    Feature : Includes : Component
+                TraverseSelection
+                    SelectionHead
+                        Template
+                            <<:>>
+                    Template
+                        <<:>><ComponentRef Id='<<#Component.Id>>'/>
+    Template
+        <<:>>
+        <<TabOut>>
+        <<:>></Feature>

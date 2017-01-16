@@ -1,0 +1,9 @@
+
+DefineDomainInclude:001_004_000_Entity_Property
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Entity:Property
+        Attribute
+            Text : Id
+            Text : Value

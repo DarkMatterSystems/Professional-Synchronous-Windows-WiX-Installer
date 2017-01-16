@@ -1,0 +1,9 @@
+
+DefineDomainInclude:001_012_000_Entity_Remove_Folder
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Entity:Remove_Folder
+        Attribute
+            Text : Id
+            Text : On

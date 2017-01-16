@@ -1,0 +1,10 @@
+
+DefineDomainInclude:001_015_000_Entity_Registry_Value
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Entity:Registry_Value
+        Attribute
+            Text : Root
+            Text : Key
+            Text : Value

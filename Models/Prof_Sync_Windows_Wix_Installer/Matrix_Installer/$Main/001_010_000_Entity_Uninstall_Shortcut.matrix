@@ -1,0 +1,11 @@
+
+DefineDomainInclude:001_010_000_Entity_Uninstall_Shortcut
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Entity:Uninstall_Shortcut
+        Attribute
+            Text : Target
+            Text : Arguments
+        Relationship
+            Specialisation --> Shortcut

@@ -1,0 +1,23 @@
+
+DefineEntityProcessInclude:Package:001_003_001_Process_Generate_Package
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Traverse
+        Navigation
+            Product : Includes : Package
+        TraverseSelection
+            Template
+                <<:>>
+                <<:>><Package
+                <<TabIn>>
+                <<:>>Id='*'
+                <<:>>Keywords='Installer'
+                <<:>>Description='<<#Package.Description>>'
+                <<:>>Comments='<<#Package.Comments>>'
+                <<:>>Manufacturer='<<#Package.Manufacture>>'
+                <<:>>InstallerVersion='100'
+                <<:>>Languages='1033'
+                <<:>>Compressed='yes'
+                <<:>>SummaryCodepage='1252'/>
+                <<TabOut>>

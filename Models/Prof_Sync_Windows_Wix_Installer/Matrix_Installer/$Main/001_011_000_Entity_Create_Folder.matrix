@@ -1,0 +1,7 @@
+
+DefineDomainInclude:001_011_000_Entity_Create_Folder
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    NullEntity
+        Create_Folder

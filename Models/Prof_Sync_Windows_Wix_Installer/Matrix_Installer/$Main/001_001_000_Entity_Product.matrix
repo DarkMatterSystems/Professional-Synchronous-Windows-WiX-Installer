@@ -1,0 +1,138 @@
+
+DefineDomainInclude:001_001_000_Entity_Product
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Entity:Product
+        Attribute
+            Text : Id
+            Text : Name
+            Text : Upgrade_code
+            Text : Version
+            Text : Manufacturer
+            Text : Download_version
+        Relationship
+            Includes ->> Icon
+            Includes --> Package
+            Includes ->> Property
+            Includes --> Directory
+            Includes --> Feature
+        State
+
+            |-----------
+
+            DynamicState:Generating
+                StateAction
+                    Stream
+                        M:
+                        \Matrix
+                        \Scenarios
+                        \Prof_Sync_Windows_Wix_Installer
+                        \Logging
+                        \Matrix-V<<#Product.Download_version>>.wxs
+                    Template
+                        <<|>><?xml version='1.0' encoding='windows-1252'?>
+                        <<:>>
+                        <<:>><!-- Learning Edition Installer -->
+                        <<:>><!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                        <<:>>
+                        <<:>><Wix xmlns='http://schemas.microsoft.com/wix/2006/wi'>
+                        <<:>>
+                        <<TabIn>>
+                        <<:>><!-- Filename: Matrix-V<<#Product.Download_version>>.wxs -->
+                        <<:>>
+                        <<:>><Product
+                        <<TabIn>>
+                        <<:>>Id='<<#Product.Id>>'
+                        <<:>>Name='<<#Product.Name>>'
+                        <<:>>UpgradeCode='<<#Product.Upgrade_code>>'
+                        <<:>>Language='1033'
+                        <<:>>Codepage='1252'
+                        <<:>>Version='<<#Product.Version>>'
+                        <<:>>Manufacturer='<<#Product.Manufacturer>>'>
+                        <<:>>
+                        <<:>>
+                        <<:>><!-- Prologe -->
+                        <<:>><!-- ~~~~~~~ -->
+                    ProcessEntityInclude
+                        Package  : 001_003_001_Process_Generate_Package
+                        Property : 001_004_001_Process_Generate_Property
+                        Icon     : 001_002_001_Process_Generate_Icon
+                    Traverse
+                        Navigation
+                            Product : Includes : Directory
+                        TraverseSelection
+                            ProcessEntityInclude
+                                Directory : 001_005_001_Process_Generate_Directory
+                    Traverse
+                        Navigation
+                            Product : Includes : Feature
+                        TraverseSelection
+                            ProcessEntityInclude
+                                Feature : 001_016_001_Process_Generate_Feature
+                    Template
+                        <<:>>
+                        <<:>>
+                        <<:>><!-- Miscellaneous -->
+                        <<:>><!-- ~~~~~~~~~~~~~ -->
+                        <<:>>
+                        <<:>><Media
+                        <<:>>    Id='1'
+                        <<:>>    Cabinet='Sample.cab'
+                        <<:>>    EmbedCab='yes'
+                        <<:>>    DiskPrompt='CD-ROM #1'/>
+                        <<:>>
+                        <<:>><CustomAction
+                        <<:>>    Id='AssignTargetDir'
+                        <<:>>    Property='TARGETDIR'
+                        <<:>>    Value='C:\'
+                        <<:>>    Execute='firstSequence'/>
+                        <<:>>
+                        <<:>><InstallUISequence>
+                        <<:>>
+                        <<:>>    <Custom
+                        <<:>>        Action='AssignTargetDir'
+                        <<:>>        Before='CostInitialize'>
+                        <<:>>
+                        <<:>>        TARGETDIR=""
+                        <<:>>
+                        <<:>>     </Custom>
+                        <<:>>
+                        <<:>></InstallUISequence>
+                        <<:>>
+                        <<:>><InstallExecuteSequence>
+                        <<:>>
+                        <<:>>    <Custom
+                        <<:>>        Action='AssignTargetDir'
+                        <<:>>        Before='CostInitialize'>
+                        <<:>>
+                        <<:>>        TARGETDIR=""
+                        <<:>>
+                        <<:>>     </Custom>
+                        <<:>>
+                        <<:>></InstallExecuteSequence>
+                        <<:>>
+                        <<:>><UIRef Id='WixUI_Minimal'/>
+                        <<:>><UIRef Id='WixUI_ErrorProgressText'/>
+                        <<:>>
+                        <<:>>
+                        <<:>><!-- Replace Standard License and Installer Icons -->
+                        <<:>>
+                        <<:>><WixVariable Id='WixUILicenseRtf' Value='Source\Licence.rtf'/>
+                        <<:>><WixVariable Id='WixUIDialogBmp'  Value='Source\Icons\UIDialog.bmp'/>
+                        <<:>><WixVariable Id='WixUIBannerBmp'  Value='Source\Icons\UIBanner.bmp'/>
+                        <<:>>
+                        <<TabOut>>
+                        <<:>></Product>
+                        <<:>>
+                        <<TabOut>>
+                        <<:>></Wix>
+                        <<:>>
+                        <<:>>
+                        <<:>><!-- Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved. -->
+                        <<:>>
+                    Stream
+                        DISPLAY:
+                Transition
+                    EventState
+                        Generate -> Generating

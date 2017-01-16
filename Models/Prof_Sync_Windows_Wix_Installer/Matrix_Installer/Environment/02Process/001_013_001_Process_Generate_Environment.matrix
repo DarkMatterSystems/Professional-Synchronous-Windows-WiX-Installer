@@ -1,0 +1,21 @@
+
+DefineEntityProcessInclude:Environment:001_013_001_Process_Generate_Environment
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Traverse
+        Navigation
+            Component : Includes : Environment
+        TraverseSelection
+            Template
+                <<:>>
+                <<:>><Environment
+                <<TabIn>>
+                <<:>>Id='<<#Environment.Id>>'
+                <<:>>Action='set'
+                <<:>>Part='all'
+                <<:>>Name='<<#Environment.Name>>'
+                <<:>>Permanent='no'
+                <<:>>System='yes'
+                <<:>>Value='<<#Environment.Value>>'/>
+                <<TabOut>>

@@ -1,0 +1,47 @@
+
+System:Prof_Sync_Windows_Wix_Installer
+
+    | Copyright (C) 2017 Dark Matter Systems Ltd. All rights reserved.
+
+    Description
+        Paragraph:Title
+            Professional Synchronous Windows WiX Matrix Installer Model
+
+    Type
+        BaseType
+            String
+                Text : 120
+
+    Matrix:Model:Application
+        Silo:M1:Software_Application
+            Realm:Analysis_Of_Application
+                Domain:Matrix_Installer
+
+                    EventContext
+                        ImportEvent
+                            Product : Generate
+
+                    |===========================================================
+
+                    DomainInclude
+                        001_001_000_Entity_Product
+                        001_002_000_Entity_Icon
+                        001_003_000_Entity_Package
+                        001_004_000_Entity_Property
+                        001_005_000_Entity_Directory
+                        001_006_000_Entity_Component
+                        001_007_000_Entity_File
+                        001_008_000_Entity_Shortcut
+                        001_009_000_Entity_File_Shortcut
+                        001_010_000_Entity_Uninstall_Shortcut
+                        001_011_000_Entity_Create_Folder
+                        001_012_000_Entity_Remove_Folder
+                        001_013_000_Entity_Environment
+                        001_014_000_Entity_Registry_Key
+                        001_015_000_Entity_Registry_Value
+                        001_016_000_Entity_Feature
+
+        |=======================================================================
+
+        MatrixInclude
+            002_000_000_Silo_Real_World_Objects
